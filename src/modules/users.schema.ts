@@ -38,5 +38,9 @@ userSchema.pre('save', async function (next) {
   user.password = await bcrypt.hash(user.password, Number(config.salt))
   next()
 })
+userSchema.post('save', async function (doc, next) {
+  doc.password = ''
+  next()
+})
 
 export const UsersModel = model<Tusers>('Users', userSchema)
