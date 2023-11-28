@@ -2,8 +2,8 @@ import { Schema, model } from 'mongoose'
 import { Tusers } from './users.interface'
 
 const userSchema = new Schema<Tusers>({
-  userId: { type: Number, required: true },
-  username: { type: String, required: true },
+  userId: { type: Number, required: true, unique: true },
+  username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   fullName: {
     firstName: { type: String, required: true },
