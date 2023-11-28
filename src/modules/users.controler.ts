@@ -44,7 +44,8 @@ const getSingleUser = async (req: Request, res: Response) => {
 const updateSingleUser = async (req: Request, res: Response) => {
   try {
     const id = req.params.userId
-    const result = await usersServices.updateSingleUserIntoDB(id)
+    const body = req.body
+    const result = await usersServices.updateSingleUserIntoDB(id, body)
     res.status(200).json({
       success: true,
       message: 'get single user successfuly ',

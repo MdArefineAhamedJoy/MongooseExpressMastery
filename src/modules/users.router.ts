@@ -9,6 +9,6 @@ usersRouter.get('/users', createControlar.getAllUsers)
 
 usersRouter.get('/users/:userId', createControlar.getSingleUser)
 
-usersRouter.put('/users/:userId')
+usersRouter.put('/users/:userId', createControlar.updateSingleUser)
 
 export const router = usersRouter

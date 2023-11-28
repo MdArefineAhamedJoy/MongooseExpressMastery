@@ -19,8 +19,15 @@ const getSingleUserIntoDB = async (id: string) => {
   return result
 }
 
-const updateSingleUserIntoDB = async (id: string) => {
-  const result = await UsersModel.updateOne()
+const updateSingleUserIntoDB = async (id: string, update: Tusers) => {
+  const result = await UsersModel.updateOne(
+    { _id: id },
+    {
+      $set: {
+        ...update,
+      },
+    },
+  )
   return result
 }
 const deleteSingleUserIntoDB = async (id: string) => {
