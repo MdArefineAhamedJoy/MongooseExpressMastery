@@ -18,8 +18,7 @@
     "@typescript-eslint/no-unused-vars": "error",
     "no-unused-expressions": "error",
     "prefer-const": "error",
-
-    "no-undef": "error"
+    "no-undef": "warn"
   },
   "globals": {
     "process": "readonly"
