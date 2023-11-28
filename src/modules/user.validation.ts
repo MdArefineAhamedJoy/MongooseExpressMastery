@@ -11,7 +11,7 @@ const UserValidationSchema = z.object({
   age: z.number(),
   email: z.string().email(),
   isActive: z.boolean(),
-  hobbies: z.array(z.string()),
+  hobbies: z.tuple([z.string(), z.string()]),
   address: z.object({
     street: z.string(),
     city: z.string(),
