@@ -24,7 +24,7 @@ const updateSingleUserIntoDB = async (id: string, update: Tusers) => {
     { _id: id },
     {
       $set: {
-        ...update,
+        update: { ...update },
       },
     },
   )
@@ -34,6 +34,8 @@ const deleteSingleUserIntoDB = async (id: string) => {
   const result = await UsersModel.deleteOne({ _id: id })
   return result
 }
+
+const updateOderSingleDataUserIntoDB = async (id: string, data: Tusers) => {}
 
 export const usersServices = {
   createUsersIntoDB,

@@ -1,3 +1,10 @@
+export type Orders = [
+  {
+    productName: string
+    price: number
+    quantity: number
+  },
+]
 export type Tusers = {
   userId: number
   username: string
@@ -15,4 +22,5 @@ export type Tusers = {
     city: string
     country: string
   }
+  orders?: Orders[]
 }

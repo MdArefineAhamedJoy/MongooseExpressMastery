@@ -23,6 +23,13 @@ const userSchema = new Schema<Tusers>({
     city: { type: String, required: true },
     country: { type: String, required: true },
   },
+  orders: [
+    {
+      productName: { type: String, required: true },
+      price: { type: Number, required: true },
+      quantity: { type: Number, required: true },
+    },
+  ],
 })
 
 // add hash password

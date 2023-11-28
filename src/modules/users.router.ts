@@ -11,4 +11,6 @@ usersRouter.get('/users/:userId', createControlar.getSingleUser)
 
 usersRouter.put('/users/:userId', createControlar.updateSingleUser)
 
+usersRouter.put('/users/:userId/orders', createControlar.updateSingleUser)
+
 export const router = usersRouter
