@@ -7,13 +7,21 @@ const createUsers = async (req: Request, res: Response) => {
     const userData = req.body
     const validationData = UserValidationSchema.parse(userData)
     const result = await usersServices.createUsersIntoDB(validationData)
+
     res.status(200).json({
       success: true,
-      message: 'create student secefuly',
+      message: 'User created successfully!',
       data: result,
     })
   } catch (err) {
-    console.log(err)
+    res.status(404).json({
+      success: false,
+      message: 'somthing is wrong ',
+      error: {
+        code: 404,
+        description: err,
+      },
+    })
   }
 }
 
@@ -26,7 +34,14 @@ const getAllUsers = async (req: Request, res: Response) => {
       data: result,
     })
   } catch (err) {
-    console.log(err)
+    res.status(404).json({
+      success: false,
+      message: 'User not found ',
+      error: {
+        code: 404,
+        description: err,
+      },
+    })
   }
 }
 const getSingleUser = async (req: Request, res: Response) => {
@@ -40,7 +55,14 @@ const getSingleUser = async (req: Request, res: Response) => {
       data: result,
     })
   } catch (err) {
-    console.log(err)
+    res.status(404).json({
+      success: false,
+      message: 'User not found',
+      error: {
+        code: 404,
+        description: err,
+      },
+    })
   }
 }
 const updateSingleUser = async (req: Request, res: Response) => {
@@ -54,7 +76,14 @@ const updateSingleUser = async (req: Request, res: Response) => {
       data: result,
     })
   } catch (err) {
-    console.log(err)
+    res.status(404).json({
+      success: false,
+      message: 'User not found',
+      error: {
+        code: 404,
+        description: err,
+      },
+    })
   }
 }
 

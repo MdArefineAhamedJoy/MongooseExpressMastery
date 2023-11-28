@@ -23,7 +23,7 @@ const UserValidationSchema = z.object({
     city: z.string(),
     country: z.string(),
   }),
-  orders: z.array(OrderSchema),
+  orders: z.array(OrderSchema).optional(),
 })
 
 export default UserValidationSchema

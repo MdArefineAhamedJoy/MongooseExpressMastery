@@ -24,7 +24,7 @@ const updateSingleUserIntoDB = async (id: string, update: Tusers) => {
     { _id: id },
     {
       $set: {
-        update: { ...update },
+        ...update,
       },
     },
   )
