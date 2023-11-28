@@ -1,5 +1,7 @@
 import { Schema, model } from 'mongoose'
 import { Tusers } from './users.interface'
+import config from '../app/config'
+import bcrypt from 'bcrypt'
 
 const userSchema = new Schema<Tusers>({
   userId: { type: Number, required: true, unique: true },
@@ -21,6 +23,13 @@ const userSchema = new Schema<Tusers>({
     city: { type: String, required: true },
     country: { type: String, required: true },
   },
+})
+
+// add hash password
+userSchema.pre('save', async function (next) {
+  const user = this
+  user.password = await bcrypt.hash(user.password, Number(config.salt))
+  next()
 })
 
 export const UsersModel = model<Tusers>('Users', userSchema)
